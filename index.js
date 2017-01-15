@@ -36,7 +36,7 @@ router.post('/send', function(req, res, next) {
 });
 
 app.post('/reply', function(req, res) {
-  lastMessage = req.body;
+  lastMessage = req.body.Body;
   res.status(200);
 });
 
