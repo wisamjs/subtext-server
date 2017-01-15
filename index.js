@@ -10,7 +10,6 @@ var fetch = require('node-fetch');
 var app = express();
 var router = express.Router();
 
-
 var port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({
@@ -35,10 +34,8 @@ router.post('/send', function(req, res, next) {
 });
 
 app.post('/reply', function(req, res) {
-  var twiml = new twilio.TwimlResponse();
-  twiml.message('The Robots are coming! Head for the hills!');
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
+  console.log(req.body);
+  res.status(200);
 });
 
 router.post('/test', function(req, res, next) {
