@@ -10,6 +10,8 @@ var fetch = require('node-fetch');
 var app = express();
 var router = express.Router();
 
+var lastMessage = '';
+
 var port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({
@@ -34,9 +36,16 @@ router.post('/send', function(req, res, next) {
 });
 
 app.post('/reply', function(req, res) {
-  console.log(req.body);
+  lastMessage = req.body;
   res.status(200);
 });
+
+app.get('/lastMessage', function(req, res) {
+  lastMessage = req.body;
+  res.status(200).send(JSON.stringify({message: lastMessage}));
+});
+
+
 
 router.post('/test', function(req, res, next) {
   decipher(req.body.message, req.body.level, req.body.number);
