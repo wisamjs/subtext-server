@@ -2,7 +2,7 @@
 
 //require the Twilio module and create a REST client
 var client = require('twilio')(process.env.accountSid, process.env.authToken);
-
+var twilio = require('twilio');
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -32,6 +32,13 @@ router.get('/', function (req, res) {
 router.post('/send', function(req, res, next) {
   decipher(req.body.message, req.body.level, req.body.number);
   res.status(200).send('Hello world!');
+});
+
+app.post('/reply', function(req, res) {
+  var twiml = new twilio.TwimlResponse();
+  twiml.message('The Robots are coming! Head for the hills!');
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
 });
 
 router.post('/test', function(req, res, next) {
