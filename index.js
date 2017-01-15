@@ -1,7 +1,7 @@
 'use strict';
 
 //require the Twilio module and create a REST client
-// var client = require('twilio')(process.env.accountSid, process.env.authToken);
+var client = require('twilio')(process.env.accountSid, process.env.authToken);
 var twilio = require('twilio');
 
 var express = require('express');
