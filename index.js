@@ -1,7 +1,7 @@
 'use strict';
 
 //require the Twilio module and create a REST client
-var client = require('twilio')(process.env.accountSid, process.env.authToken);
+// var client = require('twilio')(process.env.accountSid, process.env.authToken);
 var twilio = require('twilio');
 
 var express = require('express');
@@ -40,9 +40,12 @@ app.post('/reply', function(req, res) {
   res.status(200);
 });
 
-app.get('/lastMessage', function(req, res) {
+app.get('/last', function(req, res) {
+  var obj = {
+    message: lastMessage
+  }
   lastMessage = req.body;
-  res.status(200).send(JSON.stringify({message: lastMessage}));
+  res.status(200).send(JSON.stringify(obj));
 });
 
 
