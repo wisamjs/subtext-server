@@ -44,7 +44,6 @@ app.get('/last', function(req, res) {
   var obj = {
     message: lastMessage
   }
-  lastMessage = req.body;
   res.status(200).send(JSON.stringify(obj));
 });
 
