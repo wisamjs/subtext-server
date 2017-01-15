@@ -30,7 +30,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/send', function(req, res, next) {
-  decipher(req.body.message, req.body.level);
+  decipher(req.body.message, req.body.level, req.body.number);
   res.status(200).send('Hello world!');
 });
 
