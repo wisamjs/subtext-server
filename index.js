@@ -50,7 +50,7 @@ app.listen(port, function () {
   console.log('listening on port ' + port);
 });
 
-function decipher(message, level) {
+function decipher(message, level, number) {
   var subtext = message;
   var level = parseInt(level);
 
