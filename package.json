@@ -1,0 +1,18 @@
+{
+  "name": "comedy-hack-night-sms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wisam Zaghal <wisamzaghal@gmail.com> (http://wisam.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "twilio": "^2.5.2",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "node-fetch": "^1.3.3"
+  }
+}
